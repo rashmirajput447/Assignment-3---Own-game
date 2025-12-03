@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int secret, guess, tries = 5;
+
+    // generate random number between 1 and 15
+    srand(time(0));
+    secret = rand() % 15 + 1;
+
+    printf("🔮✨ Mystery Number Game ✨🔮\n");
+    printf("I have selected a number between 1 and 15.\n");
+    printf("You have 5 tries! 💪\n\n");
+
+    while (tries > 0) {
+        printf("🎯 Enter your guess: ");
+        scanf("%d", &guess);
+
+        if (guess == secret) {
+            printf("🎉🥳 WOW you guessed correct !congratulations 🏆\n");
+            return 0;
+        } 
+        else if (guess > secret) {
+            printf("⬆  HAHAHA Such a great looser It is Too high!  pls Try again.\n");
+        } 
+        else {
+            printf("⬇ HAHAHA Such a great looser It is Too low! pls  Try again.\n");
+        }
+
+        tries--;
+        printf("⏳you have only tries: %d\n\n", tries);
+    }
+
+    printf("💀 ohoho sry Game Over! The mystery number was %d.\n", secret);
+    printf("check your luck next time! 🍀\n");
+    return 0;
+}
